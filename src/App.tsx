@@ -1,26 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {BrowserRouter, Route} from "react-router-dom";
+import Login from './screens/Login/Login'
+import Home from "./screens/Home/Home";
+import Favorite from "./screens/Favorite/Favorite";
+import AddItem from "./screens/AddItem/AddItem";
+import NavBar from './components/NavBar/Navbar';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 const App: React.FC = () => {
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <BrowserRouter>
+
+                  <NavBar/>
+                      <Route path="/home/" component={Home}/>
+                      <Route path="/login/" component={Login} />
+                      <Route path="/favorite/" component={Favorite} />
+                      <Route path="/addItem/" component={AddItem}/>
+
+      </BrowserRouter>
   );
-}
+};
 
 export default App;
